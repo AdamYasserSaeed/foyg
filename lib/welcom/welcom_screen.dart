@@ -20,35 +20,18 @@ class WelcomeScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Hero(tag: 'img', child: const CharecterContainer(type: 'wave')),
-          CustomContainer(
-            isParent: true,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const CustomTitle(),
-                CustomButton(
-                  height: 45,
-                  width: 250,
-                  onTap: () => NavigationFunctions()
-                      .navPush(context, const SetUpTime()),
-                  isParent: true,
-                  child: Center(
-                    child: Text(
-                      "Get Started",
-                      style: GoogleFonts.farro(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  color: const Color(0xffffffff),
-                ),
-              ],
+          const Hero(tag: 'img', child: CharecterContainer(type: 'wave')),
+          Hero(
+            tag: 'button',
+            child: CustomContainerWithButton(
+              text:
+                  "Hi , MY Name is Ludo\nI well be your friend\nI hop You Like it",
+              buttontext: 'Get Started',
+              width: 300,
+              onTap: () =>
+                  NavigationFunctions.navPush(context, const SetUpTime()),
+              height: 200,
             ),
-            width: 300,
-            height: 200,
-            color: const Color(0xff5C8FAC),
           ),
         ],
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:foyg/core/core.dart';
+import 'package:foyg/core/functions/navigation.dart';
 import 'package:foyg/core/providers/time_provider.dart';
 import 'package:foyg/design/buttons/floting_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
@@ -24,7 +23,7 @@ class _SetUpTimeState extends State<SetUpTime> {
     return Scaffold(
       floatingActionButton: FlotingButton(
         iconData: Icons.arrow_right_rounded,
-        onPress: () => NavigationFunctions().navPush(context, HomeScreen()),
+        onPress: () => NavigationFunctions.navPush(context, const HomeScreen()),
       ),
       backgroundColor: const Color(0xffAFAFAF),
       body: Column(
@@ -33,16 +32,16 @@ class _SetUpTimeState extends State<SetUpTime> {
           Hero(
             tag: 'img',
             child: CharecterContainer(
-                type:
-                    (timeProvider.focustime == 30 || timeProvider.focustime <= 30)
-                        ? 'focus_time1'
-                        : (timeProvider.focustime == 50 ||
-                                timeProvider.focustime <= 50)
-                            ? 'focus_time2'
-                            : (timeProvider.focustime == 60 ||
-                                    timeProvider.focustime <= 60)
-                                ? 'focus_time3'
-                                : 'focus_time3'),
+                type: (timeProvider.focustime == 30 ||
+                        timeProvider.focustime <= 30)
+                    ? 'focus_time1'
+                    : (timeProvider.focustime == 50 ||
+                            timeProvider.focustime <= 50)
+                        ? 'focus_time2'
+                        : (timeProvider.focustime == 60 ||
+                                timeProvider.focustime <= 60)
+                            ? 'focus_time3'
+                            : 'focus_time3'),
           ),
           const CustomTitle(title: "Set Up Time to focus"),
           CustomTitle(
@@ -55,14 +54,14 @@ class _SetUpTimeState extends State<SetUpTime> {
               setState(() {
                 timeProvider.focustime = value!;
                 (timeProvider.focustime == 30 || timeProvider.focustime <= 30)
-                      ? timeProvider.currentImageType = 'focus_time1'
-                      : (timeProvider.focustime == 50 ||
-                              timeProvider.focustime <= 50)
-                          ?  timeProvider.currentImageType = 'focus_time2'
-                          : (timeProvider.focustime == 60 ||
-                                  timeProvider.focustime <= 60)
-                              ? timeProvider.currentImageType = 'focus_time3'
-                              :  timeProvider.currentImageType = 'focus_time3';
+                    ? timeProvider.currentImageType = 'focus_time1'
+                    : (timeProvider.focustime == 50 ||
+                            timeProvider.focustime <= 50)
+                        ? timeProvider.currentImageType = 'focus_time2'
+                        : (timeProvider.focustime == 60 ||
+                                timeProvider.focustime <= 60)
+                            ? timeProvider.currentImageType = 'focus_time3'
+                            : timeProvider.currentImageType = 'focus_time3';
               });
             },
           )
