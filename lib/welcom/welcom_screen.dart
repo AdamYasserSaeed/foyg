@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/custom_container.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/setup/setup_time.dart';
-import 'package:foyg/design/titles/title.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:foyg/core/functions/navigation.dart';
 
 class WelcomeScreen extends StatelessWidget {
