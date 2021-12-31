@@ -1,10 +1,13 @@
 import 'dart:async';
 
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:foyg/core/functions/navigation.dart';
 import 'package:foyg/core/providers/time_provider.dart';
+import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
+import 'package:foyg/setup/setup_time.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,48 +19,35 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  void initState() {
-    super.initState();
-    final timeProvider = context.read<TimeProvider>();
-    timeProvider.start();
-    Timer.periodic(
-      const Duration(seconds: 1),
-      (t) => setState(() {
-        if (timeProvider.remainingTime == 0.0) {
-          t.cancel();
-        } else {
-          timeProvider.updateCounter();
-        }
-      }),
-    );
-  }
-
-  @override
   Widget build(BuildContext context) {
     final timeProvider = context.read<TimeProvider>();
 
     return Scaffold(
       backgroundColor: const Color(0xffAFAFAF),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Hero(
-              tag: 'img',
-              child: CharecterContainer(type: timeProvider.currentImageType)),
-          CustomTitle(
-            title:
-                "remaining time : \n\n" + timeProvider.remainingTime.toString(),
-            align: TextAlign.center,
+          const Hero(
+              tag: 'img', child: CharecterContainer(type: "focus_time3")),
+          CustomButton(
+            text: 'Start New Focus Time',
+            onTap: () {
+              NavigationFunctions.navPush(context, const SetUpTime());
+            },
+            height: 50,
+            width: 200,
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-            child: Align(
-                alignment: Alignment.bottomLeft,
-                child: CustomTitle(
-                  title: 'You Cant Make anthing in this screen \ntap to cancel',
-                  titleSize: 10,
-                  textColor: Color.fromARGB(255, 87, 87, 87),
-                )),
+          CustomButton(
+            text: 'See Your Sammary',
+            onTap: () {},
+            height: 50,
+            width: 200,
+          ),
+          const CustomTitle(
+            title: 'p o w e r d     b y\n\n   AYATech',
+            align: TextAlign.center,
+            textColor: Color.fromARGB(255, 87, 87, 87),
+            titleSize: 10,
           )
         ],
       ),

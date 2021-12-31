@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:foyg/core/functions/navigation.dart';
 import 'package:foyg/core/providers/time_provider.dart';
+import 'package:foyg/counting/counting_screen.dart';
 import 'package:foyg/design/buttons/floting_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/sliders/sliders.dart';
@@ -23,7 +24,8 @@ class _SetUpTimeState extends State<SetUpTime> {
     return Scaffold(
       floatingActionButton: FlotingButton(
         iconData: Icons.arrow_right_rounded,
-        onPress: () => NavigationFunctions.navPush(context, const HomeScreen()),
+        onPress: () =>
+            NavigationFunctions.navReplacement(context, CountingScreen()),
       ),
       backgroundColor: const Color(0xffAFAFAF),
       body: Column(

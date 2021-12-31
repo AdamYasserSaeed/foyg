@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:desktoasts/desktoasts.dart';
 import 'package:flutter/material.dart';
 
 class TimeProvider extends ChangeNotifier {
@@ -23,7 +26,23 @@ class TimeProvider extends ChangeNotifier {
     remainingTime = focustime;
   }
 
-  min() {
-    return remainingTime = focustime - 1;
+  void timesUp() {
+    ToastService? service;
+
+    service = ToastService(
+      appName: 'FOYG',
+      companyName: 'AYATech',
+      productName: 'promodoro',
+    );
+
+    Toast toast = Toast(
+      type: ToastType.text02,
+      title: 'Times Up',
+      subtitle: 'Congratulations 🎉🎊',
+    );
+
+    service.show(toast);
+
+    notifyListeners();
   }
 }

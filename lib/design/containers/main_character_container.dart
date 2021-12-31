@@ -6,11 +6,11 @@ class CharecterContainer extends StatelessWidget {
   ///You Can Use This :
   /// 1- celebration
   ///
-  /// 2- foucus_time1
+  /// 2- focus_time1
   ///
-  /// 3- foucus_time2
+  /// 3- focus_time2
   ///
-  /// 4- foucus_time3
+  /// 4- focus_time3
   ///
   /// 5- hero
   ///
