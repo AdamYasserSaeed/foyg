@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foyg/core/functions/navigation.dart';
 import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/titles/title.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -50,7 +49,9 @@ class CustomContainer extends StatelessWidget {
 
 class CustomContainerWithButton extends StatelessWidget {
   final double? height;
+  final double? buttonheight;
   final double? width;
+  final double? buttonwidth;
   final double? radius;
   final Color? color;
   final BoxBorder? border;
@@ -72,6 +73,8 @@ class CustomContainerWithButton extends StatelessWidget {
     this.text,
     this.buttontext,
     this.onTap,
+    this.buttonheight,
+    this.buttonwidth,
   }) : super(key: key);
 
   @override
@@ -89,10 +92,13 @@ class CustomContainerWithButton extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomTitle(title: text),
+            CustomTitle(
+              title: text,
+              titleSize: MediaQuery.of(context).size.height / 40,
+            ),
             CustomButton(
-              height: 45,
-              width: 250,
+              height: buttonheight,
+              width: buttonwidth,
               onTap: onTap,
               isParent: true,
               child: Center(
@@ -100,7 +106,7 @@ class CustomContainerWithButton extends StatelessWidget {
                   buttontext!,
                   style: GoogleFonts.farro(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: MediaQuery.of(context).size.height / 40,
                   ),
                 ),
               ),

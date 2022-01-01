@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 
 class FlotingButton extends StatelessWidget {
@@ -9,7 +7,8 @@ class FlotingButton extends StatelessWidget {
   final IconData? iconData;
   final isParent = false;
 
-  const FlotingButton({Key? key, this.child, this.onPress, this.iconData, this.tooltip})
+  const FlotingButton(
+      {Key? key, this.child, this.onPress, this.iconData, this.tooltip})
       : super(key: key);
 
   @override
@@ -18,7 +17,7 @@ class FlotingButton extends StatelessWidget {
       onPressed: onPress,
       tooltip: tooltip,
       child: (isParent == true) ? child : Icon(iconData),
-      backgroundColor: Color(0xff5C8FAC),
+      backgroundColor: const Color(0xff5C8FAC),
     );
   }
 }

@@ -8,6 +8,10 @@ class CustomTextFiled extends StatelessWidget {
   final int? length;
   final TextEditingController? textController;
   final int? lines;
+  final Color? fillColor;
+  final VoidCallback? iconOnTap;
+  final Function(String)? onSubmit;
+  final Widget? icon;
 
   const CustomTextFiled({
     Key? key,
@@ -17,6 +21,10 @@ class CustomTextFiled extends StatelessWidget {
     this.length,
     this.lines,
     this.textController,
+    this.fillColor,
+    this.icon,
+    this.iconOnTap,
+    this.onSubmit,
   }) : super(key: key);
 
   @override
@@ -25,6 +33,7 @@ class CustomTextFiled extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           const SizedBox(
             height: 10,
@@ -39,6 +48,7 @@ class CustomTextFiled extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: TextFormField(
+              onFieldSubmitted: onSubmit,
               controller: textController,
               inputFormatters: [
                 LengthLimitingTextInputFormatter(length),
@@ -46,10 +56,14 @@ class CustomTextFiled extends StatelessWidget {
               obscureText: isPassword ?? false,
               keyboardType:
                   isNumber ?? false ? TextInputType.number : TextInputType.text,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 counterText: '',
+                suffix: GestureDetector(
+                  onTap: iconOnTap,
+                  child: icon ?? const Icon(Icons.lock),
+                ),
                 border: InputBorder.none,
-                fillColor: Color(0xfff3f3f4),
+                fillColor: fillColor ?? const Color(0xFF9B9898),
                 filled: true,
               ),
             ),

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:foyg/core/providers/time_provider.dart';
-import 'package:foyg/core/providers/user_provider.dart';
 import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
@@ -43,7 +42,6 @@ class _CountingScreenState extends State<CountingScreen> {
   @override
   Widget build(BuildContext context) {
     final timeProvider = context.read<TimeProvider>();
-    final userProvider = context.read<UserProvider>();
 
     return Scaffold(
       backgroundColor: const Color(0xffAFAFAF),
@@ -58,8 +56,7 @@ class _CountingScreenState extends State<CountingScreen> {
           CustomTitle(
             title: (timeProvider.remainingTime <= 0.0)
                 ? ""
-                : "Goal : \n\n" +
-                    "Focus " +
+                : "Goal : \n\nFocus " +
                     timeProvider.focustime.toInt().toString() +
                     " min",
             align: TextAlign.center,
@@ -79,9 +76,7 @@ class _CountingScreenState extends State<CountingScreen> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: CustomButton(
-                    onTap: () {
-                      userProvider.addUser();
-                    },
+                    onTap: () {},
                     height: 50,
                     text: "Great!",
                   ),

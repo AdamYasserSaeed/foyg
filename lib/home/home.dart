@@ -1,14 +1,9 @@
-import 'dart:async';
-
-import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:foyg/core/functions/navigation.dart';
-import 'package:foyg/core/providers/time_provider.dart';
 import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
 import 'package:foyg/setup/setup_time.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final timeProvider = context.read<TimeProvider>();
-
     return Scaffold(
       backgroundColor: const Color(0xffAFAFAF),
       body: Column(

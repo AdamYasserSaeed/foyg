@@ -6,7 +6,6 @@ import 'package:foyg/design/buttons/floting_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/sliders/sliders.dart';
 import 'package:foyg/design/titles/title.dart';
-import 'package:foyg/home/home.dart';
 import 'package:provider/provider.dart';
 
 class SetUpTime extends StatefulWidget {

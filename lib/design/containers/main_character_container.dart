@@ -17,14 +17,18 @@ class CharecterContainer extends StatelessWidget {
   /// 6- take_break
   ///
   /// 7- wave
+  ///
+  /// 8- think
   final String type;
+  final double height;
 
-  const CharecterContainer({Key? key, required this.type}) : super(key: key);
+  const CharecterContainer({Key? key, required this.type, this.height = 400})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: height,
       width: MediaQuery.of(context).size.width,
       child: Image.asset("img/$type.png"),
     );

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721203225998",
+    "project_id": "foyg-cdac0",
+    "storage_bucket": "foyg-cdac0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721203225998:android:5ea939be048021211830df",
+        "android_client_info": {
+          "package_name": "com.AYATech.foyg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721203225998-ni94n74ntrsqpo6ppvbmlfq37lhf03k1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwf-AzZFJsa_VCuFhxWEQy1pLfvB3Ny4E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721203225998-ni94n74ntrsqpo6ppvbmlfq37lhf03k1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
