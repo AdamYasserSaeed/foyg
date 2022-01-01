@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:foyg/core/providers/time_provider.dart';
+import 'package:foyg/core/providers/user_provider.dart';
 import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
@@ -42,17 +43,18 @@ class _CountingScreenState extends State<CountingScreen> {
   @override
   Widget build(BuildContext context) {
     final timeProvider = context.read<TimeProvider>();
+    final userProvider = context.read<UserProvider>();
 
     return Scaffold(
       backgroundColor: const Color(0xffAFAFAF),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Spacer(),
+          const Spacer(),
           Hero(
               tag: 'img',
               child: CharecterContainer(type: timeProvider.currentImageType)),
-          Spacer(),
+          const Spacer(),
           CustomTitle(
             title: (timeProvider.remainingTime <= 0.0)
                 ? ""
@@ -62,7 +64,7 @@ class _CountingScreenState extends State<CountingScreen> {
                     " min",
             align: TextAlign.center,
           ),
-          Spacer(),
+          const Spacer(),
           CustomTitle(
             title: (timeProvider.remainingTime <= 0.0)
                 ? "Congratulations You Complet\nThe Focus time"
@@ -71,11 +73,15 @@ class _CountingScreenState extends State<CountingScreen> {
                     " min",
             align: TextAlign.center,
           ),
-          Spacer(),
+          const Spacer(),
           (timeProvider.remainingTime <= 0.0)
-              ? const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              ? Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   child: CustomButton(
+                    onTap: () {
+                      userProvider.addUser();
+                    },
                     height: 50,
                     text: "Great!",
                   ),
@@ -103,7 +109,7 @@ class _CountingScreenState extends State<CountingScreen> {
     );
   }
 
-  showDialog(context) {
+  showDialog(context) async {
     return AwesomeDialog(
       context: context,
       animType: AnimType.SCALE,

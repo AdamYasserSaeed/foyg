@@ -1,4 +1,4 @@
-package com.example.foyg
+package com.AYATech.foyg
 
 import io.flutter.embedding.android.FlutterActivity
 
