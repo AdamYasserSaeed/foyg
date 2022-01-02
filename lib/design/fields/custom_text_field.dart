@@ -10,7 +10,7 @@ class CustomTextFiled extends StatelessWidget {
   final int? lines;
   final Color? fillColor;
   final VoidCallback? iconOnTap;
-  final Function(String)? onSubmit;
+  final Function(String)? onChanged;
   final Widget? icon;
 
   const CustomTextFiled({
@@ -24,7 +24,7 @@ class CustomTextFiled extends StatelessWidget {
     this.fillColor,
     this.icon,
     this.iconOnTap,
-    this.onSubmit,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -48,11 +48,8 @@ class CustomTextFiled extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: TextFormField(
-              onFieldSubmitted: onSubmit,
+              onChanged: onChanged,
               controller: textController,
-              inputFormatters: [
-                LengthLimitingTextInputFormatter(length),
-              ],
               obscureText: isPassword ?? false,
               keyboardType:
                   isNumber ?? false ? TextInputType.number : TextInputType.text,

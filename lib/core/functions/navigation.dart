@@ -16,4 +16,8 @@ class NavigationFunctions {
   static void navNamed(context, String widgetName) {
     Navigator.pushNamed(context, widgetName);
   }
+
+  static void pop(context) {
+    Navigator.pop(context);
+  }
 }

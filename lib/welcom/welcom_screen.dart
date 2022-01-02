@@ -1,12 +1,14 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:foyg/auth/login/login.dart';
+import 'package:foyg/auth/signup/signup.dart';
 import 'package:foyg/core/functions/navigation.dart';
 import 'package:foyg/core/providers/theme_provider.dart';
 import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/custom_container.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
+import 'package:foyg/home/home.dart';
 // ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 
@@ -89,7 +91,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               height: 40,
               width: 200,
               text: 'Signup',
-              onTap: () {},
+              onTap: () {
+                NavigationFunctions.navPush(context, const SignUpScreen());
+              },
             ),
           ],
         ),
