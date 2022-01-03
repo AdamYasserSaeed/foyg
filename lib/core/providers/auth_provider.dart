@@ -62,6 +62,7 @@ class SignUpProvider extends ChangeNotifier {
     try {
       firestore.collection('Users').document(auth.userId).create(userMap);
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     }
   }
