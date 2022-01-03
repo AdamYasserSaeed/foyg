@@ -29,8 +29,8 @@ class _CountingScreenState extends State<CountingScreen> {
       (t) => setState(() {
         if (timeProvider.remainingTime == 0.0) {
           widget.timer!.cancel();
-          timeProvider.timesUp();
           timeProvider.currentImageType = 'celebration';
+          timeProvider.timesUp(context);
         } else {
           timeProvider.updateCounter();
         }
@@ -53,24 +53,44 @@ class _CountingScreenState extends State<CountingScreen> {
               tag: 'img',
               child: CharecterContainer(type: timeProvider.currentImageType)),
           const Spacer(),
-          CustomTitle(
-            title: (timeProvider.remainingTime <= 0.0)
-                ? ""
-                : "Goal : \n\nFocus " +
-                    timeProvider.focustime.toInt().toString() +
-                    " min",
-            align: TextAlign.center,
+          const Spacer(),
+          Hero(
+            tag: 'title',
+            child: CustomTitle(
+              title: (timeProvider.remainingTime <= 0.0)
+                  ? "Congratulations You Complet\nThe Focus time"
+                  : timeProvider.remainingTime.toInt().toString() + " min",
+              align: TextAlign.center,
+            ),
           ),
           const Spacer(),
-          CustomTitle(
-            title: (timeProvider.remainingTime <= 0.0)
-                ? "Congratulations You Complet\nThe Focus time"
-                : "remaining time : \n\n" +
-                    timeProvider.remainingTime.toInt().toString() +
-                    " min",
-            align: TextAlign.center,
+          IconButton(
+            onPressed: () {
+              setState(() {
+                timeProvider.isPlaying = !timeProvider.isPlaying;
+                if (widget.timer!.isActive == true) {
+                  widget.timer!.cancel();
+                } else {
+                  widget.timer = Timer.periodic(
+                    const Duration(seconds: 1),
+                    (t) => setState(() {
+                      if (timeProvider.remainingTime == 0.0) {
+                        widget.timer!.cancel();
+                        timeProvider.currentImageType = 'celebration';
+                        timeProvider.timesUp(context);
+                      } else {
+                        timeProvider.updateCounter();
+                      }
+                    }),
+                  );
+                }
+              });
+            },
+            iconSize: 40,
+            icon: (timeProvider.isPlaying == false)
+                ? const Icon(Icons.play_arrow_rounded)
+                : const Icon(Icons.pause_rounded),
           ),
-          const Spacer(),
           (timeProvider.remainingTime <= 0.0)
               ? Padding(
                   padding:
