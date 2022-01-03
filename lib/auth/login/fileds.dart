@@ -1,4 +1,3 @@
-import 'package:firedart/auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foyg/core/providers/auth_provider.dart';
 import 'package:foyg/design/buttons/custom_button.dart';

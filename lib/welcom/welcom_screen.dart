@@ -8,7 +8,6 @@ import 'package:foyg/design/buttons/custom_button.dart';
 import 'package:foyg/design/containers/custom_container.dart';
 import 'package:foyg/design/containers/main_character_container.dart';
 import 'package:foyg/design/titles/title.dart';
-import 'package:foyg/home/home.dart';
 // ignore: implementation_imports
 import 'package:provider/src/provider.dart';
 

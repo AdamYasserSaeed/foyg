@@ -74,7 +74,7 @@ class SignUpProvider extends ChangeNotifier {
       ).show();
     } catch (e) {
       // ignore: avoid_print
-      debugPrint(e.toString());
+      print(e);
     }
   }
 }
